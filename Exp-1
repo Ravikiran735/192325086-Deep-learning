@@ -1,0 +1,15 @@
+import numpy as np
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+actual    = np.array(
+  [&#39;Dog&#39;,&#39;Dog&#39;,&#39;Dog&#39;,&#39;Not Dog&#39;,&#39;Dog&#39;,&#39;Not Dog&#39;,&#39;Dog&#39;,&#39;Dog&#39;,&#39;Not Dog&#39;,&#39;Not Dog&#39;])
+predicted = np.array(
+  [&#39;Dog&#39;,&#39;Not Dog&#39;,&#39;Dog&#39;,&#39;Not Dog&#39;,&#39;Dog&#39;,&#39;Dog&#39;,&#39;Dog&#39;,&#39;Dog&#39;,&#39;Not Dog&#39;,&#39;Not Dog&#39;])
+conf_matrix=confusion_matrix(actual,predicted)
+sns.heatmap(conf_matrix,annot=True,fmt=&#39;g&#39;,xticklabels=[&#39;Dog&#39;,&#39;Not
+Dog&#39;],yticklabels=[&#39;Dog&#39;,&#39;Not Dog&#39;],cmap=&#39;RdPu&#39;)
+plt.ylabel(&quot;prediction&quot;,fontsize=16)
+plt.xlabel(&quot;actual&quot;,fontsize=16)
+plt.title(&quot;confusion matrix&quot;,fontsize=20)
+plt.show()
